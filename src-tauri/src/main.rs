@@ -1,6 +1,8 @@
 // Prevents additional console window on Windows in release, DO NOT REMOVE!!
 #![cfg_attr(not(debug_assertions), windows_subsystem = "windows")]
 
+
+
 // Learn more about Tauri commands at https://tauri.app/v1/guides/features/command
 #[tauri::command]
 fn greet(name: &str) -> String {
@@ -8,10 +10,14 @@ fn greet(name: &str) -> String {
 }
 
 mod db;
+mod commands;
+mod models;
+mod schema;
+mod services;
 
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![greet])
+        .invoke_handler(tauri::generate_handler![greet, commands::talent_cmd::create_talent])
         .setup(|_app| {
             // Initialize the database.
             db::init();

@@ -15,12 +15,12 @@ pub fn init() {
     run_migrations();
 }
 
-// pub fn establish_db_connection() -> SqliteConnection {
-//     let db_path = get_db_path().clone();
+pub fn establish_db_connection() -> SqliteConnection {
+    let db_path = get_db_path().clone();
 
-//     SqliteConnection::establish(db_path.as_str())
-//         .unwrap_or_else(|_| panic!("Error connecting to {}", db_path))
-// }
+    SqliteConnection::establish(db_path.as_str())
+        .unwrap_or_else(|_| panic!("Error connecting to {}", db_path))
+}
 
 fn run_migrations() {
     let mut connection = establish_connection();
@@ -53,5 +53,5 @@ fn db_file_exists() -> bool {
 fn get_db_path() -> String {
     // let home_dir = "dada.sqlite";
     // return home_dir.to_string();
-    return "db/db.sqlite".to_string();
+    return "data/db.sqlite".to_string();
 }

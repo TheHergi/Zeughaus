@@ -1,8 +1,8 @@
 -- Your SQL goes here
 CREATE TABLE talents (
-    id Int PRIMARY KEY NOT NULL,
-    name Text NOT NULL,
-    maximum Text,
-    tests TEXT,
-    description Text
+    id Text PRIMARY KEY NOT NULL,
+    title Text NOT NULL,
+    maximum Text NOT NULL,
+    tests TEXT NOT NULL,
+    talent_desc Text NOT NULL
 );
