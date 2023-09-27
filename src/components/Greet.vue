@@ -14,11 +14,21 @@ async function greet() {
 </script>
 
 <template>
+  <div>
   <form class="row" @submit.prevent="greet">
-    <input id="greet-input" v-model="name" placeholder="Enter a name..." />
-    <input id="greet-input_id" v-model="myID" placeholder="Enter a id..." />
-    <button type="submit">Greet</button>
+    <InputText id="greet-input" v-model="name" placeholder="Enter a name..." />
+    <InputText id="greet-input_id" v-model="myID" placeholder="Enter a id..." />
+    <Button severity="info" >Greet</Button>
   </form>
 
+
+  <div class="flex flex-column md:flex-row md:justify-content-between row-gap-3">
+    <Button type="button" label="Welcome to Tauri!"></Button>
+    <Button type="button" label="Button 2" severity="secondary"></Button>
+    <Button type="button" label="Button 3" severity="help"></Button>
+</div>
+
+
   <p>{{ greetMsg }}</p>
+</div>
 </template>
