@@ -2,7 +2,7 @@
     <v-row dense>
         <v-col>
 
-            <v-list rounded>
+            <v-list rounded :disabled="!appStore.isCharacterAvailable">
                 <v-list-item v-for="n in 5" :key="n" link :title="`List Item ${n}`"></v-list-item>
 
                 <v-divider class="my-2"></v-divider>
@@ -15,4 +15,8 @@
 </template>
 
 <script setup>
+import { useAppStore } from '../stores/AppStore';
+
+const appStore = useAppStore()
+
 </script>

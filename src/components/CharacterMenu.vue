@@ -4,7 +4,7 @@
             <v-row dense class="">
                 <v-col cols="12">
                     <v-btn block>
-                        Neuer Charakter
+                        Neuer Charakter {{ charStore.name }}
                     </v-btn>
                 </v-col>
             </v-row>
@@ -23,6 +23,13 @@
         </v-col>
     </v-row>
 </template>
+
+<script setup>
+import { useCounterStore } from '../stores/CharacterStore';
+
+const charStore = useCounterStore()
+
+</script>
 
 <style scoped>
 .v-btn {
