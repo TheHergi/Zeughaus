@@ -3,4 +3,3 @@
     Home
   </v-container>
 </template>
-
