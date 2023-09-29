@@ -1,11 +1,11 @@
 <template>
-    <v-app>
-        <MenuBar />
+  <v-app>
+    <MenuBar />
 
-        <v-main class="bg-grey-lighten-3">
-            <router-view />
-        </v-main>
-    </v-app>
+    <v-main class="bg-grey-lighten-3">
+      <router-view />
+    </v-main>
+  </v-app>
 </template>
   
 
