@@ -9,6 +9,11 @@ const routes = [
         component: () => import("../views/Index.vue"),
       },
       {
+        path: "/wiki",
+        name: "Wiki",
+        component: () => import("../views/Wiki.vue"),
+      },
+      {
         path: "/about",
         name: "About",
         component: () => import("../views/About.vue"),
