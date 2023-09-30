@@ -2,7 +2,7 @@
   <v-container>
     <v-row>
 
-      <v-col cols="12" sm="4" md="3">
+      <v-col cols="12" sm="2" md="2">
 
         <v-sheet rounded class="pa-2">
           <CharacterMenu></CharacterMenu>
@@ -14,13 +14,12 @@
 
       </v-col>
 
-      <v-col cols="12" sm="8" md="9">
-
+      <v-col cols="12" sm="10" md="10">
         <v-sheet rounded class="pa-2">
-          test
+          <RouterView></RouterView>
         </v-sheet>
-
       </v-col>
+
     </v-row>
   </v-container>
 </template>

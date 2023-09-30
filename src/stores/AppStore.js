@@ -1,15 +1,15 @@
-import { defineStore } from "pinia";
+import { defineStore } from 'pinia'
 
-export const useAppStore = defineStore("App", {
+export const useAppStore = defineStore('App', {
   state: () => ({
-    characterAvailable: false,
+    characterAvailable: false
   }),
   getters: {
-    isCharacterAvailable: (state) => state.characterAvailable,
+    isCharacterAvailable: (state) => state.characterAvailable
   },
   actions: {
-    makeCharacterAvailable() {
-      this.characterAvailable = true;
-    },
-  },
-});
+    makeCharacterAvailable (en) {
+      this.characterAvailable = en
+    }
+  }
+})
