@@ -3,21 +3,17 @@
     <v-row>
 
       <v-col cols="12" sm="2" md="2">
-
-        <v-sheet rounded class="pa-2">
+        <v-card rounded class="pa-2">
           <CharacterMenu></CharacterMenu>
-        </v-sheet>
+        </v-card>
 
-        <v-sheet rounded class="pa-2 my-2">
+        <v-card class="pa-2 my-2">
           <CharacterCategories></CharacterCategories>
-        </v-sheet>
-
+        </v-card>
       </v-col>
 
       <v-col cols="12" sm="10" md="10">
-        <v-sheet rounded class="pa-2">
-          <RouterView></RouterView>
-        </v-sheet>
+        <RouterView></RouterView>
       </v-col>
 
     </v-row>
