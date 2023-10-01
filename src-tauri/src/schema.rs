@@ -2,10 +2,10 @@
 
 diesel::table! {
     talents (id) {
-        id -> Text,
+        id -> Integer,
         title -> Text,
-        maximum -> Text,
-        tests -> Text,
-        talent_desc -> Text,
+        maximum -> Nullable<Text>,
+        tests -> Nullable<Text>,
+        talent_description -> Nullable<Text>,
     }
 }

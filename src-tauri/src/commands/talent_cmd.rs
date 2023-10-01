@@ -1,17 +1,15 @@
 use crate::services::talent_service;
-use crate::models::talent_model::Talent;
-
-use uuid::Uuid;
+use crate::models::talent_model::{NewTalent, Talent};
 
 #[tauri::command]
-pub async fn create_talent(name: String)
+pub async fn create_talent(title: String, maximum: Option<String>, tests: Option<String>, talent_description: Option<String>)
 {
-    let talent_item = Talent {
-        id: Uuid::new_v4().to_string(),
-        title: name,
-        maximum: String::from("3"),
-        tests: String::from("myNewMax"),
-        talent_desc: String::from("myVeryFirstDesc"),
-    };
-    talent_service::store_new_talent(&talent_item)
+    let talent_item = NewTalent {title: &title, maximum, tests, talent_description };
+    talent_service::store_new_talent(talent_item)
+}
+
+#[tauri::command]
+pub fn get_talent(_id: i32) -> Talent
+{
+    Talent{id: 5, title: "asd".to_string(), maximum: Some("5".to_string()), tests: Some("aaa".to_string()), talent_description: Some("asdsdadas".to_string())}.into()
 }

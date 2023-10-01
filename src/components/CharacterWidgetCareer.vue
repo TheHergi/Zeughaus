@@ -11,7 +11,7 @@
         <v-select label="Karrierestufe" density="compact"></v-select>
       </v-col>
       <v-col cols="1">
-        <v-btn block>
+        <v-btn block @click="greet">
           <v-icon icon="mdi-plus-thick"></v-icon>
           <v-tooltip activator="parent" location="end">Hinzufügen</v-tooltip>
         </v-btn>
@@ -25,5 +25,13 @@
 </template>
 
 <script setup>
+import { invoke } from '@tauri-apps/api/tauri'
 
+async function greet () {
+  console.log('invoke')
+  await invoke('create_talent', { title: 'sersyyy' })
+
+  const x = await invoke('get_talent', { id: 123 })
+  console.log(x)
+}
 </script>
