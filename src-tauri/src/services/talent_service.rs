@@ -1,5 +1,6 @@
-use crate::{db::establish_db_connection, models::talent_model::NewTalent, schema::talents::dsl};
+use crate::{db::establish_db_connection, models::talent_model::{NewTalent, Talent}, schema::talents::dsl};
 use diesel::prelude::*;
+use dsl::talents;
 
 pub fn store_new_talent(talent: NewTalent) {
     print!("store new talent");
@@ -9,4 +10,13 @@ pub fn store_new_talent(talent: NewTalent) {
         .values(&talent)
         .execute(connection)
         .expect("Error saving new talent");
+}
+
+pub fn get_talents() -> Vec<Talent>{
+    let connection = &mut establish_db_connection();
+
+    return talents
+        .select(Talent::as_select())
+        .load(connection)
+        .expect("Error loading posts");
 }

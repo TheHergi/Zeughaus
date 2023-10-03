@@ -33,5 +33,8 @@ async function greet () {
 
   const x = await invoke('get_talent', { id: 123 })
   console.log(x)
+
+  const xs = await invoke('get_talents')
+  console.log(xs)
 }
 </script>
