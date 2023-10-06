@@ -9,13 +9,13 @@ pub async fn create_talent(title: String, maximum: Option<String>, tests: Option
 }
 
 #[tauri::command]
-pub fn get_talent(_id: i32) -> Talent
+pub fn get_talent(talent_id: i32) -> Option<Talent>
 {
-    Talent{id: 5, title: "asd".to_string(), maximum: Some("5".to_string()), tests: Some("aaa".to_string()), talent_description: Some("asdsdadas".to_string())}.into()
+    talent_service::get_talent(talent_id)
 }
 
 #[tauri::command]
 pub fn get_talents() -> Vec<Talent>
 {
-    return talent_service::get_talents();
+    talent_service::get_talents()
 }

@@ -30,7 +30,6 @@ const vuetify = createVuetify({
   directives,
   icons: {
     defaultSet: 'mdi'
-
   }
 })
 
