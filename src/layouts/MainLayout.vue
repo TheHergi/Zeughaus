@@ -1,11 +1,10 @@
 <template>
-  <v-app>
+  <v-layout>
     <MenuBar />
-
-    <v-main class="bg-grey-lighten-3">
+    <v-main>
       <router-view />
     </v-main>
-  </v-app>
+  </v-layout>
 </template>
 
 <script setup>

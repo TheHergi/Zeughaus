@@ -1,5 +1,11 @@
 <template>
-  <div class="d-flex justify-center">
-    <v-sheet class="ma-2 pa-2"> Wiki </v-sheet>
-  </div>
+  <v-container>
+    <v-row>
+
+      <v-col cols="12" sm="10" md="10">
+        <RouterView></RouterView>
+      </v-col>
+
+    </v-row>
+  </v-container>
 </template>

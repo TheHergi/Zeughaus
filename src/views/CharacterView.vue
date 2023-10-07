@@ -1,19 +1,20 @@
 <template>
   <v-container>
-    <v-row>
+    <v-row >
 
-      <v-col cols="12" sm="2" md="2">
-        <v-card rounded class="pa-2">
+      <v-col cols="2">
+        <v-card class="pa-2">
           <CharacterMenu></CharacterMenu>
         </v-card>
-
         <v-card class="pa-2 my-2">
-          <CharacterCategories></CharacterCategories>
+          <v-tabs  direction="vertical">
+            <v-tab v-for="item in links" :key="item.path" :text="item.name" :value="item.name" :to="item.path"></v-tab>
+          </v-tabs>
         </v-card>
       </v-col>
 
-      <v-col cols="12" sm="10" md="10">
-        <RouterView></RouterView>
+      <v-col>
+        <router-view></router-view>
       </v-col>
 
     </v-row>
@@ -22,7 +23,46 @@
 
 <script setup>
 import CharacterMenu from '../components/CharacterMenu.vue'
-import CharacterCategories from '../components/CharacterCategories.vue'
+
+import { ref } from 'vue'
+
+const links = [
+  {
+    name: 'Allgemein',
+    path: '/character/general',
+    icon: ''
+  },
+  {
+    name: 'Spielwerte',
+    path: '/character/attributes',
+    icon: ''
+  },
+  {
+    name: 'Fähigkeiten',
+    path: '/character/skills',
+    icon: ''
+  },
+  {
+    name: 'Talente',
+    path: '/character/talents',
+    icon: ''
+  },
+  {
+    name: 'Zauber',
+    path: '/character/spells',
+    icon: ''
+  },
+  {
+    name: 'Gebete',
+    path: '/character/prayer',
+    icon: ''
+  },
+  {
+    name: 'Ausrüstung',
+    path: '/character/trappings',
+    icon: ''
+  }
+]
 </script>
 
 <style scoped></style>

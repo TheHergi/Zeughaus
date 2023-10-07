@@ -1,23 +1,24 @@
 <template>
   <v-row dense>
+
     <v-col>
       <!-- <v-tabs color="grey-darken-2" direction="vertical" :disabled="!appStore.isCharacterAvailable"> -->
-      <v-tabs color="grey-darken-2" direction="vertical">
+      <v-spacer></v-spacer>
+      <v-tabs color="grey-darken-2">
         <v-tab v-for="item in links" :key="item.path" :text="item.name" :to="item.path"></v-tab>
       </v-tabs>
+      <v-spacer></v-spacer>
     </v-col>
 
   </v-row>
 </template>
 
 <script setup>
-// import { useAppStore } from '../stores/AppStore'
-// const appStore = useAppStore()
 
 const links = [
   {
     name: 'Allgemein',
-    path: '/character/',
+    path: '/character/general',
     icon: ''
   },
   {
