@@ -33,6 +33,21 @@ const vuetify = createVuetify({
   },
   theme: {
     defaultTheme: 'dark'
+  },
+  defaults: {
+    global: {
+      ripple: false
+    },
+    VCard: {
+      variant: 'flat'
+    },
+    VBtn: {
+      variant: 'outlined',
+      style: 'text-transform: none;'
+    },
+    VTab: {
+      density: 'compact'
+    }
   }
 })
 

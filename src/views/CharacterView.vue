@@ -24,8 +24,6 @@
 <script setup>
 import CharacterMenu from '../components/CharacterMenu.vue'
 
-import { ref } from 'vue'
-
 const links = [
   {
     name: 'Allgemein',
