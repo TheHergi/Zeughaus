@@ -26,17 +26,45 @@ class CharacteristicsCollection {
 
 export const useCharacterStore = defineStore('Character', {
   state: () => ({
-
     name: '',
     careers: [],
-    characteristics: new CharacteristicsCollection()
+    attributes: {
+      characteristics: new CharacteristicsCollection(),
+      fate: {
+        fate: 0,
+        fortune: 0
+
+      },
+      resilience: {
+        resilience: 0,
+        resolve: 0,
+        motivation: ''
+      },
+      movement: {
+        movement: 0,
+        walk: 0,
+        run: 0
+      },
+      experience: {
+        current: 0,
+        spent: 0,
+        total: 0
+      }
+    }
 
   }),
   getters: {
   },
   actions: {
     updateCharacteristics (type) {
-      this.characteristics.total[type] = parseInt(this.characteristics.init[type]) + parseInt(this.characteristics.advances[type])
+      this.attributes.characteristics.total[type] = parseInt(this.attributes.characteristics.init[type]) + parseInt(this.attributes.characteristics.advances[type])
+    },
+    updateMovement () {
+      this.attributes.movement.walk = parseInt(this.attributes.movement.movement) * 2
+      this.attributes.movement.run = parseInt(this.attributes.movement.movement) * 4
+    },
+    updateExperience () {
+      this.attributes.experience.current = parseInt(this.attributes.experience.total) - parseInt(this.attributes.experience.spent)
     }
   }
 })
