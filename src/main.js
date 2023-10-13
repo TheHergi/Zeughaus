@@ -47,6 +47,9 @@ const vuetify = createVuetify({
     },
     VTab: {
       density: 'compact'
+    },
+    VTextField: {
+      variant: 'underlined'
     }
   }
 })
