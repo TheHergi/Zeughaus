@@ -17,7 +17,12 @@ mod services;
 
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![greet, commands::talent_cmd::create_talent, commands::talent_cmd::get_talent, commands::talent_cmd::get_talents])
+        .invoke_handler(tauri::generate_handler![greet, 
+            commands::talent_cmd::create_talent,
+             commands::talent_cmd::get_talent,
+              commands::talent_cmd::get_talents,
+              commands::skills_cmd::get_basic_skills]
+            )
         .setup(|_app| {
             // Initialize the database.
             db::init();

@@ -13,7 +13,7 @@ diesel::table! {
     skills (skill_id) {
         skill_id -> Integer,
         title -> Text,
-        attriute -> Text,
+        attribute -> Text,
         is_advanced -> Nullable<Integer>,
         is_grouped -> Nullable<Integer>,
         skill_description -> Nullable<Text>,

@@ -8,7 +8,7 @@ class Characteristics {
     this.S = 0
     this.T = 0
     this.I = 0
-    this.Ag = 0
+    this.Ag = 23
     this.Dex = 0
     this.Int = 0
     this.WP = 0
