@@ -21,7 +21,7 @@ fn main() {
             commands::talent_cmd::create_talent,
              commands::talent_cmd::get_talent,
               commands::talent_cmd::get_talents,
-              commands::skills_cmd::get_basic_skills,
+              commands::skills_cmd::get_skills,
               commands::skills_cmd::get_skill_spec]
             )
         .setup(|_app| {

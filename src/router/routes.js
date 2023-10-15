@@ -21,7 +21,18 @@ const routes = [
       {
         name: 'Fähigkeiten',
         path: '/character/skills',
-        component: () => import('../views/CharacterViewSkills.vue')
+        children: [
+          {
+            path: '/character/skills/basic',
+            name: 'Grundfähigkeiten',
+            component: () => import('../views/CharacterViewSkillsBasic.vue')
+          },
+          {
+            path: '/character/skills/advanced',
+            name: 'Ausbaufähigkeiten',
+            component: () => import('../views/CharacterViewSkillsAdvanced.vue')
+          }
+        ]
       },
       {
         name: 'Talente',

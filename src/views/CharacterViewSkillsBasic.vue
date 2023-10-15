@@ -18,9 +18,10 @@ const table1Values = ref([])
 const table0Values = ref([])
 
 async function loadItems () {
-  const val = await invoke('get_basic_skills')
-  table0Values.value = val.slice(0, val.length / 2 + 1)
-  table1Values.value = val.slice(val.length / 2 + 1)
+  const val = await invoke('get_skills', { advanced: false })
+  table0Values.value = val
+  // table0Values.value = val.slice(0, val.length / 2 + 1)
+  // table1Values.value = val.slice(val.length / 2 + 1)
 }
 onMounted(() => loadItems())
 

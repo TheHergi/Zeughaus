@@ -4,9 +4,9 @@ use crate::models::skills_model::Skill;
 use crate::models::skills_spec_model::SkillSpec;
 
 #[tauri::command]
-pub fn get_basic_skills() -> Vec<Skill>
+pub fn get_skills(advanced: bool) -> Vec<Skill>
 {
-    skills_service::get_basic_skills()
+    skills_service::get_skills(advanced)
 }
 
 #[tauri::command]

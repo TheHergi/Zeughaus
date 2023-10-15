@@ -7,12 +7,12 @@ use crate::{
 
 use diesel::prelude::*;
 
-pub fn get_basic_skills() -> Vec<Skill>{
+pub fn get_skills(advanced: bool) -> Vec<Skill>{
     let connection = &mut establish_db_connection();
 
     return dsl::skills
         .select(Skill::as_select())
-        .filter(skills::is_advanced.eq(0))
+        .filter(skills::is_advanced.eq(advanced as i32))
         .load(connection)
         .expect("Error get_basic_skills");
 }
