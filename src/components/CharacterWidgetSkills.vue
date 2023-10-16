@@ -17,7 +17,7 @@
           </v-row>
         </div>
         <div v-else-if="header.key == 'advances' && !props.item.is_grouped">
-          <v-text-field density="compact" type="number" v-model="props.item[header.key]" hide-details variant="underlined"></v-text-field>
+          <v-text-field density="compact" type="number" v-model="charStore.skills[props.item.skill_id]" hide-details variant="underlined"></v-text-field>
         </div>
         <div v-else-if="header.key == 'total'">
           1

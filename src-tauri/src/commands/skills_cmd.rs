@@ -14,3 +14,9 @@ pub fn get_skill_spec(id: i32) -> Vec<SkillSpec>
 {
     skills_spec_service::get_spec_skills(id)
 }
+
+#[tauri::command]
+pub fn get_skill_specs() -> Vec<SkillSpec>
+{
+    skills_spec_service::get_skill_specs()
+}

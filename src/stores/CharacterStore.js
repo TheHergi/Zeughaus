@@ -50,8 +50,9 @@ export const useCharacterStore = defineStore('Character', {
         spent: 0,
         total: 0
       }
-    }
-
+    },
+    skills: {},
+    skillSpecs: {}
   }),
   getters: {
   },
@@ -65,6 +66,9 @@ export const useCharacterStore = defineStore('Character', {
     },
     updateExperience () {
       this.attributes.experience.current = parseInt(this.attributes.experience.total) - parseInt(this.attributes.experience.spent)
+    },
+    createSkillsIfNotExists (skills) {
+
     }
   }
 })

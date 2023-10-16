@@ -19,6 +19,8 @@ import {
 } from 'vuetify/labs/VDataTable'
 
 import '@mdi/font/css/materialdesignicons.css' // Ensure you are using css-loader
+import { invoke } from '@tauri-apps/api/tauri'
+import { useCharacterStore } from './stores/CharacterStore'
 
 const vuetify = createVuetify({
   components: {
@@ -61,3 +63,30 @@ app.use(router)
 app.use(vuetify)
 app.use(pinia)
 app.mount('#app')
+
+async function initSkills () {
+  const charStore = useCharacterStore()
+
+  const base = await invoke('get_skills', { advanced: false })
+  base.forEach((element) => {
+    if (!element.is_grouped) {
+      charStore.skills[element.skill_id] = 0
+    }
+  })
+
+  const adv = await invoke('get_skills', { advanced: true })
+  adv.forEach((element) => {
+    if (!element.is_grouped) {
+      charStore.skills[element.skill_id] = 0
+    }
+  })
+
+  const specs = await invoke('get_skill_specs')
+  specs.forEach((element) => {
+    if (!element.is_grouped) {
+      charStore.skillSpecs[element.id] = 0
+    }
+  })
+  console.log(specs)
+}
+initSkills()
