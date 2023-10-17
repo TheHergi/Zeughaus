@@ -23,43 +23,14 @@
           1
         </div>
         <div v-else-if="header.key == 'expand'">
-          <v-btn icon="mdi-chevron-down" size="small"
-                 v-if="props.item.is_grouped && !expanded.includes(props.item.skill_id)"
-                 @click="expanded.push(props.item.skill_id); specItemRequest(props.item.skill_id)" density="compact">
-            <v-icon size="small" icon="mdi-chevron-down"></v-icon>
-          </v-btn>
-          <v-btn icon="mdi-chevron-up" v-if="props.item.is_grouped && expanded.includes(props.item.skill_id)"
-                 @click="expanded = expanded.filter(e => e != props.item.skill_id)" density="compact">
-            <v-icon xs icon="mdi-chevron-up"></v-icon>
-          </v-btn>
-          <!-- <v-btn icon="mdi-plus" size="small"
+          <v-btn icon="mdi-plus" size="small"
                  v-if="props.item.is_grouped"
-                 @click="specItemRequest(props.item.skill_id)" density="compact">
+                 @click="specItemRequest(props.item.skill_id); " density="compact">
             <v-icon size="small" icon="mdi-plus"></v-icon>
-          </v-btn> -->
+          </v-btn>
+          <CharacterGroupedSkillDialog v-model="showGroupDialog" :skill_id="groupID"></CharacterGroupedSkillDialog>
         </div>
 
-        <!-- <div v-if="expanded.includes(props.item.skill_id)">
-
-            </div> -->
-      </template>
-      <template v-slot:expanded-row="{ item }">
-        <tr v-for="spec in specItems" :key="spec.id">
-          <td></td>
-          <td>
-            {{ spec.title }}
-          </td>
-          <td>
-            {{item.attribute}}
-          </td>
-          <td>
-            0
-          </td>
-          <td>
-            0
-          </td>
-
-        </tr>
       </template>
 
       <template #bottom></template>
@@ -69,13 +40,14 @@
 
 <script setup>
 import { ref } from 'vue'
-import { invoke } from '@tauri-apps/api/tauri'
 import { useCharacterStore } from '../stores/CharacterStore'
+import CharacterGroupedSkillDialog from '../components/CharacterGroupedSkillDialog.vue'
 
 const charStore = useCharacterStore()
 const props = defineProps(['skillsData'])
 const expanded = ref([])
-const specItems = ref([])
+const showGroupDialog = ref(false)
+const groupID = ref(-1)
 
 const headers = ref([
   { title: '', key: 'expand', align: 'center' },
@@ -87,21 +59,12 @@ const headers = ref([
 ])
 
 function specItemRequest (id) {
-  loadSpecItems(id)
-}
-
-async function loadSpecItems (id) {
-  console.log(id)
-  specItems.value = await invoke('get_skill_spec', { id })
-  // tableItem.value.push(...specItems.value)
-  console.log(specItems.value)
+  groupID.value = id
+  showGroupDialog.value = true
 }
 
 </script>
 
 <style scoped>
-/* .v-table:deep() .v-table__wrapper > table > tbody > tr > td {
-    padding: 0px 2px;
-} */
 
 </style>
