@@ -1,14 +1,14 @@
 <template>
   <v-card class="pa-2" title="Zähigkeit">
     <v-text-field type="number"
-                  v-model="charStore.attributes.resilience.resilience"
+                  v-model.number="charStore.attributes.resilience.resilience"
                   :min=0
                   :max=99
                   hide-details
                   label="Zähigkeit">
     </v-text-field>
     <v-text-field type="number"
-                  v-model="charStore.attributes.resilience.resolve"
+                  v-model.number="charStore.attributes.resilience.resolve"
                   :min=0
                   :max=99
                   hide-details

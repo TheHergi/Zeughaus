@@ -1,21 +1,21 @@
 <template>
   <v-card class="pa-2" title="Erfahrung">
     <v-text-field type="number"
-                  v-model="charStore.attributes.experience.total"
+                  v-model.number="charStore.attributes.experience.total"
                   @input="charStore.updateExperience"
                   :min=0
                   hide-details
                   label="Gesamt">
     </v-text-field>
     <v-text-field type="number"
-                  v-model="charStore.attributes.experience.spent"
+                  v-model.number="charStore.attributes.experience.spent"
                   @input="charStore.updateExperience"
                   :min=0
                   hide-details
                   label="Ausgegeben">
     </v-text-field>
     <v-text-field type="number"
-                  v-model="charStore.attributes.experience.current"
+                  v-model.number="charStore.attributes.experience.current"
                   :min=0
                   hide-details
                   readonly

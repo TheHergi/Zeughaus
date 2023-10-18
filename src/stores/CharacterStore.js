@@ -67,14 +67,14 @@ export const useCharacterStore = defineStore('Character', {
   },
   actions: {
     updateCharacteristics (type) {
-      this.attributes.characteristics.total[type] = parseInt(this.attributes.characteristics.init[type]) + parseInt(this.attributes.characteristics.advances[type])
+      this.attributes.characteristics.total[type] = this.attributes.characteristics.init[type] + this.attributes.characteristics.advances[type]
     },
     updateMovement () {
-      this.attributes.movement.walk = parseInt(this.attributes.movement.movement) * 2
-      this.attributes.movement.run = parseInt(this.attributes.movement.movement) * 4
+      this.attributes.movement.walk = this.attributes.movement.movement * 2
+      this.attributes.movement.run = this.attributes.movement.movement * 4
     },
     updateExperience () {
-      this.attributes.experience.current = parseInt(this.attributes.experience.total) - parseInt(this.attributes.experience.spent)
+      this.attributes.experience.current = this.attributes.experience.total - this.attributes.experience.spent
     },
     updateSkill (id) {
       this.skills[id].total = this.attributes.characteristics.total[this.skills[id].characteristic] + this.skills[id].advances

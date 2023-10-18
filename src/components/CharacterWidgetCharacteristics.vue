@@ -5,12 +5,12 @@
       <template v-for="header in headers" v-slot:[`item.${header.key}`]="props" :key="header.key">
         <div v-if="header.key != 'title'">
           <div v-if="props.index != 2">
-            <v-text-field density="comfortable" type="number" v-model="props.item[header.key]"
+            <v-text-field density="comfortable" type="number" v-model.number="props.item[header.key]"
                           @input="charStore.updateCharacteristics(header.key)" :min=0 :max=999 hide-details>
             </v-text-field>
           </div>
           <div v-else>
-            <v-text-field readonly density="compact" v-model="props.item[header.key]" hide-details>
+            <v-text-field readonly density="compact" v-model.number="props.item[header.key]" hide-details>
             </v-text-field>
           </div>
         </div>

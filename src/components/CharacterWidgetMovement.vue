@@ -1,7 +1,7 @@
 <template>
   <v-card class="pa-4" title="Bewegung">
     <v-text-field type="number"
-                  v-model="charStore.attributes.movement.movement"
+                  v-model.number="charStore.attributes.movement.movement"
                   @input="charStore.updateMovement"
                   :min=0
                   :max=99
@@ -9,13 +9,13 @@
                   label="Bewegung">
     </v-text-field>
     <v-text-field type="number"
-                  v-model="charStore.attributes.movement.walk"
+                  v-model.number="charStore.attributes.movement.walk"
                   hide-details
                   readonly
                   label="Gehen">
     </v-text-field>
     <v-text-field type="number"
-                  v-model="charStore.attributes.movement.run"
+                  v-model.number="charStore.attributes.movement.run"
                   hide-details
                   readonly
                   label="Rennen">

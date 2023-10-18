@@ -1,14 +1,14 @@
 <template>
   <v-card class="pa-2" title="Schicksal">
     <v-text-field type="number"
-                  v-model="charStore.attributes.fate.fate"
+                  v-model.number="charStore.attributes.fate.fate"
                   :min=0
                   :max=99
                   hide-details
                   label="Schicksal">
     </v-text-field>
     <v-text-field type="number"
-                  v-model="charStore.attributes.fate.fortune"
+                  v-model.number="charStore.attributes.fate.fortune"
                   :min=0
                   :max=99
                   hide-details
