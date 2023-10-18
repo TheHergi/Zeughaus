@@ -4,6 +4,12 @@ use crate::models::skills_model::Skill;
 use crate::models::skills_spec_model::SkillSpec;
 
 #[tauri::command]
+pub fn get_skill(id: i32) -> Option<Skill>
+{
+    skills_service::get_skill(id)
+}
+
+#[tauri::command]
 pub fn get_skills(advanced: bool) -> Vec<Skill>
 {
     skills_service::get_skills(advanced)

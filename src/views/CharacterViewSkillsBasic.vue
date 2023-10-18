@@ -10,7 +10,7 @@
 </template>
 
 <script setup>
-import { ref, onMounted } from 'vue'
+import { ref } from 'vue'
 import { invoke } from '@tauri-apps/api/tauri'
 import CharacterWidgetSkills from '../components/CharacterWidgetSkills.vue'
 
@@ -19,10 +19,10 @@ const table0Values = ref([])
 
 async function loadItems () {
   const val = await invoke('get_skills', { advanced: false })
-  table0Values.value = val
-  // table0Values.value = val.slice(0, val.length / 2 + 1)
-  // table1Values.value = val.slice(val.length / 2 + 1)
+  const split = val.length / 2
+  table0Values.value = val.slice(0, split)
+  table1Values.value = val.slice(split)
 }
-onMounted(() => loadItems())
+loadItems()
 
 </script>

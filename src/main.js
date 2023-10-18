@@ -20,7 +20,7 @@ import {
 
 import '@mdi/font/css/materialdesignicons.css' // Ensure you are using css-loader
 import { invoke } from '@tauri-apps/api/tauri'
-import { useCharacterStore } from './stores/CharacterStore'
+import Skill, { useCharacterStore } from './stores/CharacterStore'
 
 const vuetify = createVuetify({
   components: {
@@ -69,24 +69,28 @@ async function initSkills () {
 
   const base = await invoke('get_skills', { advanced: false })
   base.forEach((element) => {
-    if (!element.is_grouped) {
-      charStore.skills[element.skill_id] = 0
-    }
+    const s = new Skill()
+    s.id = element.skill_id
+    s.characteristic = element.attribute
+    charStore.skills[element.skill_id] = s
   })
 
   const adv = await invoke('get_skills', { advanced: true })
   adv.forEach((element) => {
-    if (!element.is_grouped) {
-      charStore.skills[element.skill_id] = 0
-    }
+    const s = new Skill()
+    s.characteristic = element.attribute
+    s.id = element.skill_id
+    charStore.skills[element.skill_id] = s
   })
+  console.log(charStore.skills)
 
   const specs = await invoke('get_skill_specs')
   specs.forEach((element) => {
-    if (!element.is_grouped) {
-      charStore.skillSpecs[element.id] = 0
-    }
+    const s = new Skill()
+    s.characteristic = charStore.skills[element.skill_id].characteristic
+    s.id = element.id
+    charStore.skillSpecs[element.id] = s
   })
-  console.log(specs)
+  console.log(charStore.skillSpecs)
 }
 initSkills()

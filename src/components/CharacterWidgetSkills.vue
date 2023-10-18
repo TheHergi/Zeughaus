@@ -17,10 +17,22 @@
           </v-row>
         </div>
         <div v-else-if="header.key == 'advances' && !props.item.is_grouped">
-          <v-text-field density="compact" type="number" v-model="charStore.skills[props.item.skill_id]" hide-details variant="underlined"></v-text-field>
+          <v-text-field density="compact"
+                        type="number"
+                        variant="underlined"
+                        v-model.number="charStore.skills[props.item.skill_id].advances"
+                        hide-details
+                        @input="charStore.updateSkill(props.item.skill_id)">
+          </v-text-field>
         </div>
         <div v-else-if="header.key == 'total'">
-          1
+          <v-text-field density="compact"
+                        type="number"
+                        v-model.number="charStore.skills[props.item.skill_id].total"
+                        hide-details
+                        variant="underlined"
+                        readonly>
+          </v-text-field>
         </div>
         <div v-else-if="header.key == 'expand'">
           <v-btn icon="mdi-plus" size="small"
@@ -28,7 +40,7 @@
                  @click="specItemRequest(props.item.skill_id); " density="compact">
             <v-icon size="small" icon="mdi-plus"></v-icon>
           </v-btn>
-          <CharacterGroupedSkillDialog v-model="showGroupDialog" :skill_id="groupID"></CharacterGroupedSkillDialog>
+
         </div>
 
       </template>
@@ -36,6 +48,7 @@
       <template #bottom></template>
     </v-data-table>
   </v-card>
+  <CharacterGroupedSkillDialog v-model="showGroupDialog" :skill_id="groupID"></CharacterGroupedSkillDialog>
 </template>
 
 <script setup>

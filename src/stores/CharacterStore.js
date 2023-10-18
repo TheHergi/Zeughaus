@@ -24,6 +24,15 @@ class CharacteristicsCollection {
   }
 }
 
+export default class Skill {
+  constructor () {
+    this.id = 0
+    this.characteristic = ''
+    this.advances = 0
+    this.total = 0
+  }
+}
+
 export const useCharacterStore = defineStore('Character', {
   state: () => ({
     name: '',
@@ -67,8 +76,8 @@ export const useCharacterStore = defineStore('Character', {
     updateExperience () {
       this.attributes.experience.current = parseInt(this.attributes.experience.total) - parseInt(this.attributes.experience.spent)
     },
-    createSkillsIfNotExists (skills) {
-
+    updateSkill (id) {
+      this.skills[id].total = this.attributes.characteristics.total[this.skills[id].characteristic] + this.skills[id].advances
     }
   }
 })

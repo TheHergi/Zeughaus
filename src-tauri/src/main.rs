@@ -17,14 +17,16 @@ mod services;
 
 fn main() {
     tauri::Builder::default()
-        .invoke_handler(tauri::generate_handler![greet, 
+        .invoke_handler(tauri::generate_handler![
+            greet, 
             commands::talent_cmd::create_talent,
-             commands::talent_cmd::get_talent,
-              commands::talent_cmd::get_talents,
-              commands::skills_cmd::get_skills,
-              commands::skills_cmd::get_skill_spec,
-              commands::skills_cmd::get_skill_specs]
-            )
+            commands::talent_cmd::get_talent,
+            commands::talent_cmd::get_talents,
+            commands::skills_cmd::get_skill,
+            commands::skills_cmd::get_skills,
+            commands::skills_cmd::get_skill_spec,
+            commands::skills_cmd::get_skill_specs
+            ])
         .setup(|_app| {
             // Initialize the database.
             db::init();
