@@ -24,8 +24,8 @@ fn main() {
             commands::talent_cmd::get_talents,
             commands::skills_cmd::get_skill,
             commands::skills_cmd::get_skills,
-            commands::skills_cmd::get_skill_spec,
-            commands::skills_cmd::get_skill_specs
+            commands::skills_cmd::get_skill_specs,
+            commands::skills_cmd::get_all_skill_specs
             ])
         .setup(|_app| {
             // Initialize the database.

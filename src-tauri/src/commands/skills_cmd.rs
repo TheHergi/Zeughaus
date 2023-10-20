@@ -16,13 +16,13 @@ pub fn get_skills(advanced: bool) -> Vec<Skill>
 }
 
 #[tauri::command]
-pub fn get_skill_spec(id: i32) -> Vec<SkillSpec>
+pub fn get_skill_specs(id: i32) -> Vec<SkillSpec>
 {
-    skills_spec_service::get_spec_skills(id)
+    skills_spec_service::get_skill_specs(id)
 }
 
 #[tauri::command]
-pub fn get_skill_specs() -> Vec<SkillSpec>
+pub fn get_all_skill_specs() -> Vec<SkillSpec>
 {
-    skills_spec_service::get_skill_specs()
+    skills_spec_service::get_all_skill_specs()
 }

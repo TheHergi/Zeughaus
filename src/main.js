@@ -89,15 +89,14 @@ async function initSkills () {
     s.id = element.skill_id
     charStore.skills[element.skill_id] = s
   })
-  console.log(charStore.skills)
 
-  const specs = await invoke('get_skill_specs')
+  const specs = await invoke('get_all_skill_specs')
   specs.forEach((element) => {
     const s = new Skill()
+
     s.characteristic = charStore.skills[element.skill_id].characteristic
-    s.id = element.id
-    charStore.skillSpecs[element.id] = s
+    s.id = element.skill_spec_id
+    charStore.skillSpecs[element.skill_spec_id] = s
   })
-  console.log(charStore.skillSpecs)
 }
 initSkills()

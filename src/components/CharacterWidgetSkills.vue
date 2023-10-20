@@ -11,7 +11,7 @@
             <v-col>
               {{ $t('characteristics.shortName.' + props.item[header.key] )}}
             </v-col>
-            <v-col>
+            <v-col class="text-right">
               {{ charStore.attributes.characteristics.total[props.item[header.key]] }}
             </v-col>
           </v-row>
@@ -19,7 +19,8 @@
         <div v-else-if="header.key == 'advances' && !props.item.is_grouped">
           <v-text-field density="compact"
                         type="number"
-                        variant="underlined"
+                        variant="solo"
+                        flat
                         v-model.number="charStore.skills[props.item.skill_id].advances"
                         hide-details
                         @input="charStore.updateSkill(props.item.skill_id)">
@@ -30,14 +31,17 @@
                         type="number"
                         v-model.number="charStore.skills[props.item.skill_id].total"
                         hide-details
-                        variant="underlined"
+                        variant="solo"
+                        flat
                         readonly>
           </v-text-field>
         </div>
         <div v-else-if="header.key == 'expand'">
-          <v-btn icon="mdi-plus" size="small"
+          <v-btn icon="mdi-plus"
+                 size="small"
                  v-if="props.item.is_grouped"
-                 @click="specItemRequest(props.item.skill_id); " density="compact">
+                 @click="specItemRequest(props.item.skill_id);"
+                 density="compact">
             <v-icon size="small" icon="mdi-plus"></v-icon>
           </v-btn>
 
@@ -63,11 +67,11 @@ const showGroupDialog = ref(false)
 const groupID = ref(-1)
 
 const headers = ref([
-  { title: '', key: 'expand', align: 'center' },
+  { title: '', key: 'expand', sortable: false, align: 'center' },
   { title: 'Name', key: 'title', sortable: false, align: 'begin' },
-  { title: 'Spielwert', key: 'attribute', sortable: false, align: 'begin' },
-  { title: 'Steig.', key: 'advances', sortable: false, align: 'center' },
-  { title: 'Wert', key: 'total', sortable: false, align: 'center' }
+  { title: 'Spielwert', key: 'attribute', sortable: false, align: 'begin', width: '20%' },
+  { title: 'Steig.', key: 'advances', sortable: false, align: 'center', width: '20%' },
+  { title: 'Wert', key: 'total', sortable: false, align: 'center', width: '20%' }
 
 ])
 
@@ -84,5 +88,7 @@ updateCharacteristics()
 </script>
 
 <style scoped>
-
+.v-table:deep() .v-table__wrapper > table > tbody > tr > td {
+padding: 0 10px;  /* was: 0 16px */
+}
 </style>

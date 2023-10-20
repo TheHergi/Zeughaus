@@ -66,8 +66,24 @@ export const useCharacterStore = defineStore('Character', {
   getters: {
   },
   actions: {
+    updateSkills (characteristic) {
+      const c = this.attributes.characteristics.total[characteristic]
+
+      for (const s of Object.values(this.skills)) {
+        if (s.characteristic === characteristic) {
+          s.total = c + s.advances
+        }
+      }
+
+      for (const s of Object.values(this.skillSpecs)) {
+        if (s.characteristic === characteristic) {
+          s.total = c + s.advances
+        }
+      }
+    },
     updateCharacteristics (type) {
       this.attributes.characteristics.total[type] = this.attributes.characteristics.init[type] + this.attributes.characteristics.advances[type]
+      this.updateSkills(type)
     },
     updateMovement () {
       this.attributes.movement.walk = this.attributes.movement.movement * 2
@@ -78,6 +94,9 @@ export const useCharacterStore = defineStore('Character', {
     },
     updateSkill (id) {
       this.skills[id].total = this.attributes.characteristics.total[this.skills[id].characteristic] + this.skills[id].advances
+    },
+    updateSpecSkill (skillSpedId, skillId) {
+      this.skillSpecs[skillSpedId].total = this.attributes.characteristics.total[this.skills[skillId].characteristic] + this.skillSpecs[skillSpedId].advances
     }
   }
 })
