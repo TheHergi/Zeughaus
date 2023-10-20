@@ -1,0 +1,29 @@
+{
+    "characteristics": {
+        "characteristics": "Characteristics",
+        "fullName": {
+            "Ag": "Agility",
+            "BS": "Ballistic Skill",
+            "Dex": "Dexterity",
+            "Fel": "Fellowship",
+            "I": "Initiative",
+            "Int": "Intelligence",
+            "S": "Strength",
+            "T": "Toughness",
+            "WP": "Willpower",
+            "WS": "Weapon Skill"
+        },
+        "shortName": {
+            "Ag": "Ag",
+            "BS": "BS",
+            "Dex": "Dex",
+            "Fel": "Fel",
+            "I": "I",
+            "Int": "Int",
+            "S": "S",
+            "T": "T",
+            "WP": "WP",
+            "WS": "WS"
+        }
+    }
+}

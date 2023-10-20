@@ -9,7 +9,7 @@
         <div v-else-if="header.key == 'attribute' ">
           <v-row no-gutters>
             <v-col>
-              {{ props.item[header.key] }}
+              {{ $t('characteristics.shortName.' + props.item[header.key] )}}
             </v-col>
             <v-col>
               {{ charStore.attributes.characteristics.total[props.item[header.key]] }}

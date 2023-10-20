@@ -50,7 +50,7 @@
             <div v-else-if="header.key == 'attribute' ">
               <v-row no-gutters>
                 <v-col>
-                  {{ skillItem[header.key] }}
+                  {{ $t('characteristics.shortName.' + skillItem[header.key] )}}
                 </v-col>
                 <v-col>
                   {{ charStore.attributes.characteristics.total[skillItem[header.key]] }}

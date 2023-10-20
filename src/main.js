@@ -3,6 +3,7 @@ import { createPinia } from 'pinia'
 
 import App from './App.vue'
 import router from './router'
+import { setupI18n } from './i18n'
 
 import './css/styles.css'
 
@@ -58,10 +59,16 @@ const vuetify = createVuetify({
 
 const pinia = createPinia()
 
+const i18n = setupI18n({
+  legacy: false,
+  locale: 'de'
+})
+
 const app = createApp(App)
 app.use(router)
 app.use(vuetify)
 app.use(pinia)
+app.use(i18n)
 app.mount('#app')
 
 async function initSkills () {

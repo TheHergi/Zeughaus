@@ -1,0 +1,29 @@
+{
+    "characteristics": {
+        "characteristics": "Spielwerte",
+        "fullName": {
+            "Ag": "Gewandtheit",
+            "BS": "Ballistische Fertigkeit",
+            "Dex": "Geschicklichkeit",
+            "Fel": "Charisma",
+            "I": "Initiative",
+            "Int": "Intelligenz",
+            "S": "Stärke",
+            "T": "Widerstand",
+            "WP": "Willenskraft",
+            "WS": "Kampfgeschick"
+        },
+        "shortName": {
+            "Ag": "GW",
+            "BS": "BF",
+            "Dex": "GS",
+            "Fel": "CH",
+            "I": "I",
+            "Int": "IN",
+            "S": "ST",
+            "T": "WI",
+            "WP": "WK",
+            "WS": "KG"
+        }
+    }
+}

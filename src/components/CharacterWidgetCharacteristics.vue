@@ -27,19 +27,21 @@
 <script setup>
 import { useCharacterStore } from '../stores/CharacterStore'
 import { ref, computed } from 'vue'
+import { useI18n } from 'vue-i18n'
+const { t } = useI18n()
 
 const headers = ref([
-  { title: 'Spielwerte', align: 'begin', key: 'title', width: '10%', sortable: false },
-  { title: 'KG', key: 'WS', width: '9%', sortable: false },
-  { title: 'BF', key: 'BS', width: '9%', sortable: false },
-  { title: 'ST', key: 'S', width: '9%', sortable: false },
-  { title: 'Wi', key: 'T', width: '9%', sortable: false },
-  { title: 'I', key: 'I', width: '9%', sortable: false },
-  { title: 'GW', key: 'Ag', width: '9%', sortable: false },
-  { title: 'GS', key: 'Dex', width: '9%', sortable: false },
-  { title: 'IN', key: 'Int', width: '9%', sortable: false },
-  { title: 'WK', key: 'WP', width: '9%', sortable: false },
-  { title: 'CH', key: 'Fel', width: '9%', sortable: false }
+  { title: t('characteristics.characteristics'), align: 'begin', key: 'title', width: '10%', sortable: false },
+  { title: t('characteristics.shortName.WS'), key: 'WS', width: '9%', sortable: false },
+  { title: t('characteristics.shortName.BS'), key: 'BS', width: '9%', sortable: false },
+  { title: t('characteristics.shortName.S'), key: 'S', width: '9%', sortable: false },
+  { title: t('characteristics.shortName.T'), key: 'T', width: '9%', sortable: false },
+  { title: t('characteristics.shortName.I'), key: 'I', width: '9%', sortable: false },
+  { title: t('characteristics.shortName.Ag'), key: 'Ag', width: '9%', sortable: false },
+  { title: t('characteristics.shortName.Dex'), key: 'Dex', width: '9%', sortable: false },
+  { title: t('characteristics.shortName.Int'), key: 'Int', width: '9%', sortable: false },
+  { title: t('characteristics.shortName.WP'), key: 'WP', width: '9%', sortable: false },
+  { title: t('characteristics.shortName.Fel'), key: 'Fel', width: '9%', sortable: false }
 ])
 
 const charStore = useCharacterStore()
