@@ -21,8 +21,8 @@ diesel::table! {
 }
 
 diesel::table! {
-    skills_spec (id) {
-        id -> Integer,
+    skills_spec (skills_spec_id) {
+        skills_spec_id -> Integer,
         title -> Text,
         skill_id -> Nullable<Integer>,
     }
