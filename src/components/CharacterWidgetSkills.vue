@@ -80,11 +80,6 @@ function specItemRequest (id) {
   showGroupDialog.value = true
 }
 
-function updateCharacteristics () {
-  console.log('Update Skills')
-}
-updateCharacteristics()
-
 </script>
 
 <style scoped>
